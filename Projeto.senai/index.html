@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="navy" data-sheet="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Profissional - Enzo Souza Luz</title>
+
+    <!-- Fontes Google para tipografia limpa e moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Barra de Ações Superior (Não sai na impressão) -->
+    <header class="action-bar no-print">
+        <div class="action-bar-container">
+
+            <!-- Lado Esquerdo: Status e Temas -->
+            <div class="action-left">
+                <span class="badge-status">Visualização em Tempo Real</span>
+
+                    <!-- Seletor de Cores de Fundo e Tema -->
+                    <div class="theme-picker" title="Escolha a cor de fundo do site">
+                        <span class="picker-label">Cor de Fundo:</span>
+                        <button class="color-dot active" data-color="navy"
+                            style="background: #0d1b3e; border: 2px solid #38bdf8;"
+                            title="Azul Marinho Escuro"></button>
+                        <button class="color-dot" data-color="emerald"
+                            style="background: #062c21; border: 2px solid #34d399;"
+                            title="Verde Esmeralda Escuro"></button>
+                        <button class="color-dot" data-color="indigo"
+                            style="background: #17133b; border: 2px solid #a78bfa;"
+                            title="Índigo / Roxo Escuro"></button>
+                        <button class="color-dot" data-color="slate"
+                            style="background: #111827; border: 2px solid #94a3b8;"
+                            title="Grafite / Preto Escuro"></button>
+                        <button class="color-dot" data-color="cyan"
+                            style="background: #08293a; border: 2px solid #22d3ee;"
+                            title="Azul Petróleo Escuro"></button>
+                    </div>
+                </div>
+
+                <!-- Lado Direito: Ações -->
+                <div class="action-buttons">
+
+                    <!-- Alternador Dark/Light do visualizador -->
+                    <button id="theme-mode-btn" class="btn btn-secondary"
+                        title="Alternar entre Folha Azul Marinho e Papel Branco">
+                        <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <span id="mode-text">Folha Clara</span>
+                    </button>
+
+                    <!-- Alternar Edição Direta -->
+                    <button id="toggle-edit-btn" class="btn btn-secondary"
+                        title="Ativar ou desativar edição direta nos textos">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        <span id="edit-btn-text">Modo Edição: Ligado</span>
+                    </button>
+
+                    <!-- Backup JSON -->
+                    <button id="export-json-btn" class="btn btn-secondary" title="Baixar backup dos dados em JSON">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Backup</span>
+                    </button>
+
+                    <!-- Restaurar Padrão -->
+                    <button id="reset-btn" class="btn btn-secondary" title="Restaurar o modelo padrão inicial">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                            <path d="M3 3v5h5"></path>
+                        </svg>
+                        <span>Restaurar</span>
+                    </button>
+
+                    <!-- Botão Principal de Impressão e PDF -->
+                    <button id="print-btn" class="btn btn-primary" title="Imprimir ou Salvar como PDF profissional">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect x="6" y="14" width="12" height="8"></rect>
+                        </svg>
+                        <span>Salvar em PDF / Imprimir</span>
+                    </button>
+                </div>
+
+            </div>
+    </header>
+
+    <!-- Folha Principal do Currículo -->
+    <main class="resume-sheet" id="resume" contenteditable="true" spellcheck="false">
+
+        <!-- Cabeçalho Principal com Avatar Integrado -->
+        <section class="resume-header">
+            <div class="header-content">
+
+                <!-- Avatar / Foto com Iniciais estilizadas -->
+                <div class="avatar-container" title="Clique para enviar ou trocar foto (opcional)">
+                    <div class="avatar-initials" id="avatar-display">EL</div>
+                    <img id="avatar-img" class="avatar-img" src="" alt="Foto de perfil" style="display: none;">
+                    <input type="file" id="avatar-upload" accept="image/*" class="no-print" style="display: none;">
+                </div>
+
+                <div class="header-main">
+                    <h1 class="candidate-name">Enzo Souza Luz</h1>
+                    <p class="candidate-role">Estudante de Ciência da Computação | Desenvolvedor de Software</p>
+                </div>
+            </div>
+
+            <!-- Informações de Contato Rápidas e Alinhadas -->
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Av. Jorge Amado, 8 - Bairro José Ferreira, Salvador - BA</span>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                    <a href="tel:719985438766">(71) 98543-8766</a>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:enzo.souzasluz@gmail.com">enzo.souzasluz@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/enzoluz</a>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    <a href="https://github.com" target="_blank" rel="noopener">github.com/enzoluz</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corpo com Estrutura de Duas Colunas Alinhadas -->
+        <div class="resume-columns">
+
+            <!-- Coluna Principal (Esquerda - 65%) -->
+            <div class="main-column">
+
+                <!-- Resumo Profissional -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </span>
+                        <h2>Perfil Profissional</h2>
+                    </div>
+                    <p class="summary-text">
+                        Estudante de <strong>Ciência da Computação</strong> na UniRuy com sólida base em lógica de
+                        programação, algoritmos e estruturas de dados. Desenvolvendo projetos práticos com foco em
+                        tecnologias web modernas, boas práticas de codificação (Clean Code), versionamento com Git e
+                        resolução eficiente de problemas. Perfil proativo, colaborativo e em constante aprimoramento
+                        técnico, em busca de oportunidades como <strong>Estagiário ou Desenvolvedor Júnior</strong>.
+                    </p>
+                </section>
+
+                <!-- Experiências e Projetos Práticos -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </span>
+                        <h2>Experiência & Projetos</h2>
+                    </div>
+
+                    <div class="timeline">
+
+                        <!-- Item 1: Projeto Prático / Portfólio -->
+                        <article class="timeline-item">
+                            <div class="item-header">
+                                <div>
+                                    <h3 class="item-role">Desenvolvedor Frontend / Full Stack (Projetos Práticos)</h3>
+                                    <div class="item-company">Projetos Acadêmicos & Pessoais | Salvador, BA</div>
+                                </div>
+                                <span class="item-date">2025 – Presente</span>
+                            </div>
+                            <ul class="item-list">
+                                <li>Desenvolvimento de aplicações web interativas e responsivas utilizando
+                                    <strong>HTML5, CSS3 moderno (Flexbox/Grid) e JavaScript (ES6+)</strong>.</li>
+                                <li>Implementação de controle de versão com <strong>Git e GitHub</strong>, aplicando
+                                    boas práticas de branches e commits semânticos.</li>
+                                <li>Construção de interfaces focadas em usabilidade (UX/UI), acessibilidade e
+                                    performance de carregamento.</li>
+                                <li>Resolução de desafios práticos de lógica e algoritmos aplicados ao desenvolvimento
+                                    de software.</li>
+                            </ul>
+                        </article>
+
+                        <!-- Item 2: SENAI / Atividades Acadêmicas e Práticas -->
+                        <article class="timeline-item">
+                            <div class="item-header">
+                                <div>
+                                    <h3 class="item-role">Desenvolvimento de Soluções Tecnológicas</h3>
+                                    <div class="item-company">SENAI / Projetos Integradores</div>
+                                </div>
+                                <span class="item-date">2024 – 2025</span>
+                            </div>
+                            <ul class="item-list">
+                                <li>Colaboração no desenvolvimento de projetos integradores em equipe, utilizando
+                                    metodologias ágeis (Scrum/Kanban).</li>
+                                <li>Elaboração de documentação técnica, modelagem de banco de dados e diagramas
+                                    estruturais.</li>
+                                <li>Apresentação de resultados e soluções técnicas com comunicação clara e foco nas
+                                    necessidades do usuário final.</li>
+                            </ul>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- Principais Projetos em Destaque -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                        </span>
+                        <h2>Projetos em Destaque</h2>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Sistema Web Responsivo / Portfólio Pessoal</h3>
+                            <span class="tech-tag">HTML5 • CSS3 • JavaScript</span>
+                        </div>
+                        <p class="project-desc">
+                            Aplicação web com design fluido, temas dinâmicos, suporte a impressão otimizada em PDF e
+                            estrutura semântica para indexação e acessibilidade.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Algoritmos & Estrutura de Dados Aplicados</h3>
+                            <span class="tech-tag">C / Python • Git</span>
+                        </div>
+                        <p class="project-desc">
+                            Repositório de soluções algorítmicas, manipulação de arquivos, ordenação, busca binária e
+                            estruturas como listas, pilhas e filas.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Coluna Lateral (Direita - 35%) -->
+            <aside class="sidebar-column">
+
+                <!-- Formação Acadêmica -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </span>
+                        <h2>Formação</h2>
+                    </div>
+
+                    <div class="education-block">
+                        <div class="degree-title">Ciência da Computação</div>
+                        <div class="institution-name">UniRuy Wyden</div>
+                        <div class="degree-period">
+                            <span class="pill-badge">Graduação / Bacharelado</span>
+                            <span class="date-text">2025 – Presente (Previsão 2028)</span>
+                        </div>
+                        <p class="degree-desc">Foco em Engenharia de Software, Algoritmos, Redes de Computadores e Banco
+                            de Dados.</p>
+                    </div>
+
+                    <div class="education-block">
+                        <div class="degree-title">Formação Complementar / Tecnologia</div>
+                        <div class="institution-name">SENAI Bahia</div>
+                        <div class="degree-period">
+                            <span class="pill-badge pill-neutral">Capacitação</span>
+                            <span class="date-text">2024 – 2025</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Habilidades Técnicas -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </span>
+                        <h2>Competências Técnicas</h2>
+                    </div>
+
+                    <div class="skills-group">
+                        <div class="skills-category">Linguagens de Programação</div>
+                        <div class="tag-list">
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C / C++</span>
+                            <span class="skill-tag">HTML5 & CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <div class="skills-category">Tecnologias & Frameworks</div>
+                        <div class="tag-list">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">CSS Grid & Flexbox</span>
+                            <span class="skill-tag">SQL / Modelagem</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-group">
+                        <div class="skills-category">Ferramentas & Metodologias</div>
+                        <div class="tag-list">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Scrum / Kanban</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certificados & Cursos Complementares -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </span>
+                        <h2>Cursos & Certificações</h2>
+                    </div>
+
+                    <div class="cert-item">
+                        <div class="cert-name">Versionamento e Colaboração com Git & GitHub</div>
+                        <div class="cert-issuer">SENAI / Cursos Livres • 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Fundamentos de Lógica de Programação e Algoritmos</div>
+                        <div class="cert-issuer">UniRuy • 2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Desenvolvimento Web Front-End Moderno</div>
+                        <div class="cert-issuer">Capacitação Online • 2024</div>
+                    </div>
+                </section>
+
+                <!-- Competências Comportamentais (Soft Skills) -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </span>
+                        <h2>Diferenciais</h2>
+                    </div>
+
+                    <ul class="soft-skills-list">
+                        <li>Raciocínio lógico e resolução de problemas</li>
+                        <li>Comunicação clara e trabalho em equipe</li>
+                        <li>Autonomia e vontade contínua de aprender</li>
+                        <li>Organização e foco em entregas com qualidade</li>
+                    </ul>
+                </section>
+
+                <!-- Idiomas -->
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                        </span>
+                        <h2>Idiomas</h2>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-name">
+                            <span>Português</span>
+                            <span class="lang-level">Nativo</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="language-item">
+                        <div class="language-name">
+                            <span>Inglês</span>
+                            <span class="lang-level">Técnico / Leitura Avançada</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </section>
+
+            </aside>
+
+        </div>
+
+        <!-- Rodapé Discreto -->
+        <footer class="resume-footer">
+            <span>Atualizado em Novembro de 2026 • Documento formatado segundo padrões de recrutamento e triagem técnica
+                (ATS-Friendly)</span>
+        </footer>
+
+    </main>
+
+    <!-- Script para Interatividade e Ações -->
+    <script src="script.js"></script>
+</body>
+
+</html>
